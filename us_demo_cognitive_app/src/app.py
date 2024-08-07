@@ -94,6 +94,23 @@ class RayaApplication(RayaApplicationBase):
     def get_args(self):
         parser = argparse.ArgumentParser()
 
+        # Initial navigation position (X, Y, angle) and name
+        parser.add_argument('-x' , '--target_x',
+                            type = float, default = 5.0, required = False,
+                            help ='X coordinate to initial navigation')
+        
+        parser.add_argument('-y', '--target_y',
+                            type = float, default = 5.0, required = False,
+                            help = 'Y coordinate to initial navigation')
+        
+        parser.add_argument('-a', '--target_angle',
+                            type = float, default = 5.0, required = False,
+                            help = 'Angle to initial navigation')
+
+        parser.add_argument('-tn', '--target_name',
+                            type = str, default = 'test', required = False,
+                            help = 'Name of the location')
+
         # Task ID
         parser.add_argument('-tid', '--task_id',
                             type = str, default = 1,
@@ -122,6 +139,10 @@ class RayaApplication(RayaApplicationBase):
         
         # Parse the arguments
         args = parser.parse_args()
+        self.x = args.target_x
+        self.y = args.target_y
+        self.angle = args.target_angle
+        self.target_name = args.target_name
         self.task_id = args.task_id
         self.memory_game_difficulty = args.memory_game_difficulty
         self.simon_game_difficulty = args.simon_game_difficulty
