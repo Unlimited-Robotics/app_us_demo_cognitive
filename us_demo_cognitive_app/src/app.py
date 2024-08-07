@@ -26,7 +26,7 @@ class RayaApplication(RayaApplicationBase):
         # Get app args
         self.get_args()
 
-        # Setup variables
+        # Setup variables   
         self.setup_variables()
 
         # Reset user feedbacks

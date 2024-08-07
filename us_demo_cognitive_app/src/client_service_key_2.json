@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "rare-cubist-428209-d5",
+  "private_key_id": "4880833e09c09216d9d5028a3f0e305b5c3b0ae8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqUAbR9lz00tOG\nFwn1xHPmTkF1ZYwSz5rNqeVOWCLtfczQIhtHTEhyrfbrcWE43cGatfpqc9/GB49F\n+5olnpDQGCvLLvtzVM01F1LcUc4VGVHV+4cz056x2xi2oKRT8jdGKRz/ikF0Y3P0\n3C12k+iVuHSot3vufqJwzMJIM9BDhTKyGguoDTFb35eteQGntVPPP5V6FUHEcA8N\ny5jSB9Zh1cfQpzXe4DNL97sblINt4oelet/b+KyocP8yd+eJQwYtYZ6cq5i3q5OI\nbfmDw0/rg1hwh+BXSQQxzQwO5ril7okWLn9lux71zE73xsdXUcJNFFlrIrcarNvM\nxAZ8D9qzAgMBAAECggEAT38MN+wNhq9z0WamnQOmb60+a6xLHiquYOo5IQENyJoM\nRGhvIDAQrwrZsxtYnKER8gOYUCEnJfm4XButX3rssF1f77bN4w8FvA7XfARpM7r+\nUmnWOZBBRlZ06iYAnjh0qXieUv83Pzr+0KAHTo6KpXwUY/5FSFTuwMUquGYLA8CA\nyqssb0Wm31mxOgeWCYJLYiCD4OC5sGMYsAsCTA9EEzc3GuIItXQ/o4u9OtdJ/OB9\np+qpn43CfFUY4B9uQYNUCrxUOhbcIW2tQoF5GJPgDAy8Wb8LFlxdHXUw0HGrM2/P\nKcjvKh9g3rCL72hK8BSDfrs6LWaguwN+vZDh1WsMFQKBgQDeyyxKoufov/NxLoym\n4PKXdRlaSmrJL26+77nsZeOxvDPbeaS7ldQTi0ZMIbIHgS0TzvTjlbDVWRN+paUL\nz9yd4AH2f080U1zoakU7g2PiW7rXVHeWDk6jS3cREZ6CSimkDzBZo4fxX1j1oqRT\nDUfyoLZrWdulznF/1fIE67fz7wKBgQDDsmhZXe+V0V9LH5O57Ct3M/XEvfCWPU3L\nBq1X9RwWVShTGOR6yIsjSkhPEwUJCwuRxONXVfS9i+YeNFtEhlnNyJ6I2amMhWX9\ne/2BQelqvfebnxzfr764CQRa2tl9frZQ0HIB1OhXgnrGaeH1av6L48LV0pK/fT60\nXY57CkMxfQKBgBjSvl6ahAhUysUDkLxPN/hUHb0HqZo85LP1ddu3BoWZGJYNmaMk\n8Ho0/GIjJvjbFbCtUG/DD+7Ve+ySfC8yu7wDZ3SVfrevyhxDKu+Ulh50Zf7z9FcN\nxQlAsUV/lw+hP759yr9SDyV/oCPOOUzfn/KSoYCYhHaW5+J8bfjKYraVAoGAcdlm\nCa+zhZZj+QFq4Pw7oUKyVX4m7FDH5DiDOiuX5oouRoGx0pi/EY3SmWY4RLWPSoOf\nuxx/oJI2ExZkjm4W6rgvOvBeSikFV739kmg1EmtoFLoxgxTsQIbGaNDvPKouCL/r\nw5MIhHidUrcgxLU1V07u95Rk2VBU3XucO4qR4sUCgYEA0Tv2NLfRm0xj3HDkBmpq\n9wQg9Qep4tOqeiwhiJaNV+B2Q8/O6ZtvMnm8rxvphSiYgxEYXEiZM/yIhvcbfUR1\n8lUWJVcJS5i4R/b7RkjDaO/v5qBFEn8izDenYjjvwqStEB0KNfpj3tHX3ZFY7+yL\nQaMMEDzKfjO5eGEuI1rI6/o=\n-----END PRIVATE KEY-----\n",
+  "client_email": "text-to-speech@rare-cubist-428209-d5.iam.gserviceaccount.com",
+  "client_id": "117043292892596368969",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/text-to-speech%40rare-cubist-428209-d5.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
