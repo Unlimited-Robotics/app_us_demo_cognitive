@@ -86,6 +86,9 @@ class RayaApplication(RayaApplicationBase):
     async def finish(self):
         # Finishing instructions
         self.log.warn(f'Hello from finish()')
+        await self.fleet.finish_task(task_id=self.task_id,
+                                           result=FLEET_FINISH_STATUS.SUCCESS,
+                                           message='Done!')
 
     
 
@@ -138,7 +141,7 @@ class RayaApplication(RayaApplicationBase):
         
         
         # Parse the arguments
-        args = parser.parse_args()
+        args, unknown_args = parser.parse_known_args()
         self.x = args.target_x
         self.y = args.target_y
         self.angle = args.target_angle
