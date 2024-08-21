@@ -9,7 +9,7 @@ from raya.tools.filesystem import *
 from google.cloud import texttospeech
 
 # Other Imports
-import os
+import os, shutil
 import time
 import numpy as np
 import argparse
@@ -25,6 +25,7 @@ class RayaApplication(RayaApplicationBase):
     async def setup(self):
         # Get app args
         self.get_args()
+        self.setup_audio()
 
         # Setup variables   
         self.setup_variables()
@@ -864,3 +865,19 @@ class RayaApplication(RayaApplicationBase):
         if FLEET_STOP_COMMAND in self.fleet_messages:
             self.stop_condition = True
             self.stop_fleet = True
+
+    def setup_audio(self):
+
+        files_lst = [f for f in os.listdir(APP_LOCAL_AUDIO_PATH) if os.path.isfile(os.path.join(APP_LOCAL_AUDIO_PATH, f))]
+        create_dat_folder(AUDIO_PATH)
+
+        for f in files_lst:
+            path_tmp = f'{AUDIO_PATH}/{f}'
+            self.log.debug(f'Resolving: {path_tmp}')
+            if not check_file_exists(path_tmp):
+                self.log.info(f'Resolving file: {f}')
+                shutil.copyfile(os.path.join(APP_LOCAL_AUDIO_PATH, f), resolve_path(path_tmp))
+            else:
+                self.log.info(f'File: {f}, already exists, skipping...')
+        
+        self.log.info('Finished audio setup')
