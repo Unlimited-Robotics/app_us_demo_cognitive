@@ -94,11 +94,12 @@ UI_DIFFICULTY_CHOICE_SELECTOR = {
     }
 
 UI_WELL_DONE = {
-    'title' : '',
+    'title' : 'Well done 👍🏻👍🏽👍🏿',
     'show_back_button' : False,
-    'content' : '/assets/well_done.png',
-    'format' : UI_ANIMATION_TYPE.URL,
-    'custom_style' : {'title' : {'font-size' : '80px'},
+    'show_loader' : False,
+    'theme' : THEME,
+    'title_size' : UI_TITLE_SIZE.LARGE,
+    'custom_style' : {'title' : {'font-size' : '150px'},
                         'subtitle' : {'font-size' : '50px'},
                         "selector": {"background-color": "white",
                                     "border-width": "4px",
@@ -107,10 +108,27 @@ UI_WELL_DONE = {
                         'background' : {'background' : background_logo,
                                         'backgroundRepeat' : 'no-repeat',
                                         'backgroundSize' : 'cover'},
-                         'image' : {'width' : '700px',
-                                    'height' : '700px'}
-                                        }
+    }
 }
+
+# UI_WELL_DONE = {
+#     'title' : '',
+#     'show_back_button' : False,
+#     'content' : '/assets/well_done.jpg',
+#     'format' : UI_ANIMATION_TYPE.URL,
+#     'custom_style' : {'title' : {'font-size' : '80px'},
+#                         'subtitle' : {'font-size' : '50px'},
+#                         "selector": {"background-color": "white",
+#                                     "border-width": "4px",
+#                                     "border-color": "#0686D8"
+#                                 },
+#                         'background' : {'background' : background_logo,
+#                                         'backgroundRepeat' : 'no-repeat',
+#                                         'backgroundSize' : 'cover'},
+#                          'image' : {'width' : '700px',
+#                                     'height' : '700px'}
+#                                         }
+# }
 
 SCREENS_ENGLISH = {'UI_GAME_CHOICE_SELECTOR' : UI_GAME_CHOICE_SELECTOR,
                    'UI_DIFFICULTY_CHOICE_SELECTOR' : UI_DIFFICULTY_CHOICE_SELECTOR,
