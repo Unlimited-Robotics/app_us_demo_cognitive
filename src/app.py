@@ -326,7 +326,10 @@ class RayaApplication(RayaApplicationBase):
 
         # Congratulate the patient upon game completion
         await self.ui.display_screen(**UI_WELL_DONE)
-        await self.play_sound_with_leds(f'VOICE_GAME_COMPLETED_{self.language}', wait = True)
+        await self.play_sound_with_leds(f'VOICE_GAME_COMPLETED_{self.language}',
+                                        wait = True,
+                                        leds_repetitions = 2
+                                        )
       
 
     # 
