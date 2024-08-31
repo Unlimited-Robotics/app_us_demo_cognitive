@@ -71,7 +71,8 @@ class RayaApplication(RayaApplicationBase):
         if difficulty_choice_name is None:
             return
         
-        await self.play_sound_with_leds(f'VOICE_DIFFICULTY_{difficulty_choice_name.upper()}_{self.language}', wait = True)
+        await self.play_sound_with_leds(f'VOICE_DIFFICULTY_{difficulty_choice_name.upper()}_{self.language}',
+                                        wait = True, leds_repetitions = 2)
 
         # Play the game
         if game_choice_name == 'Memory Game':
@@ -84,6 +85,7 @@ class RayaApplication(RayaApplicationBase):
 
     async def finish(self):
         # Finishing instructions
+        await self.play_sound_with_leds(f'VOICE_FINISH_{self.language}', wait = True)
         self.log.warn(f'Hello from finish()')
         await self.fleet.finish_task(task_id=self.task_id,
                                            result=FLEET_FINISH_STATUS.SUCCESS,
@@ -205,7 +207,7 @@ class RayaApplication(RayaApplicationBase):
                         )
         
         # Explain the game
-        await self.play_sound_with_leds(f'VOICE_SIMON_GAME_{self.language}')
+        await self.play_sound_with_leds(f'VOICE_SIMON_GAME_{self.language}', leds_repetitions = 2)
        
         # Repeat the instructions every 10 seconds until the game started
         num_instructions_reps = 0
@@ -217,7 +219,7 @@ class RayaApplication(RayaApplicationBase):
             current_time = time.time()
             if abs(current_time - start_time) >= 30:
                 num_instructions_reps += 1
-                await self.play_sound_with_leds(f'VOICE_SIMON_GAME_{self.language}')
+                await self.play_sound_with_leds(f'VOICE_SIMON_GAME_{self.language}', leds_repetitions = 2)
                 start_time = time.time()
         last_feedback = self.games_feedback
 
@@ -275,7 +277,7 @@ class RayaApplication(RayaApplicationBase):
                         )
         
         # Explain the game
-        await self.play_sound_with_leds(f'VOICE_MEMORY_GAME_{self.language}')
+        await self.play_sound_with_leds(f'VOICE_MEMORY_GAME_{self.language}', leds_repetitions = 2)
        
         # Give the patient feedback until the game is complete
         last_feedback = self.games_feedback.copy()
@@ -327,55 +329,34 @@ class RayaApplication(RayaApplicationBase):
         await self.play_sound_with_leds(f'VOICE_GAME_COMPLETED_{self.language}', wait = True)
       
 
+    # 
+    
     async def play_sound_with_leds(self,
                                    recording_name,
                                    leds_data = None,
+                                   leds_repetitions = 1,
                                    leds = True,
                                    wait = False,
-                                   overwrite = True
-                                   ):
-        '''
-        Play a sound with leds. At the moment, only predefined sounds that
-        have an audio length in the constants file
-
-        INPUTS
-        -----
-        * recording_name - the name of the predefined sound to play
-        * leds_data - the leds parameters to activate
-
-        OUTPUTS
-        ------
-        * The method doesn't return any outputs, it plays a predefined sound
-          followed by leds
-        '''
-
-        rec_time = REC_TIMES[f'{recording_name}.mp3']
-        if not leds_data:
-            leds_data = {'group' : 'head',
-                        'color' : 'blue',
-                        'animation' : 'MOTION_4',
-                        'speed' : 7,
-                        'repetitions' : int(0.3*rec_time)+1,
-                        'wait' : False
-                        }
+                                   overwrite = True):
         
-        try:
-            await self.sound.cancel_all_sounds()
-            await self.leds.turn_off_group(group = 'head')
-            if leds:
-                await self.leds.animation(**leds_data,
-                                          callback_finish = self.cb_finish_sound
-                                          )
-            await self.sound.play_sound(name = recording_name,
+        if not leds_data:
+            leds_data = {
+                'group': 'head',
+                'color': 'blue',
+                'animation': 'MOTION_4',
+                'speed': 6,
+                'repetitions' : leds_repetitions,
+                'execution_control': LEDS_EXECUTION_CONTROL.OVERRIDE,
+            }
+
+        if leds:
+            await self.leds.animation(**leds_data, wait=False)
+        await self.sound.play_sound(name=recording_name,
                                         wait = wait,
                                         overwrite = overwrite,
                                         callback_feedback_async = self.async_cb_feedback_sound,
                                         callback_finish = self.cb_finish_sound
                                         )
-        
-        except Exception as e:
-            self.log.debug(
-                f'Error in play_sound_with_leds - {e}')
 
 
 
@@ -713,7 +694,7 @@ class RayaApplication(RayaApplicationBase):
                 return
             
             if counter % rep_time == 0 and not voice_override:
-                await self.play_sound_with_leds(voice)
+                await self.play_sound_with_leds(voice, leds_repetitions = 2)
 
             await self.sleep(1.0)
             counter += 1

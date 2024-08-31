@@ -103,6 +103,13 @@ VOICE_CARD_MISMATCH_2_ENGLISH = {
     'file_name' : 'VOICE_CARD_MISMATCH_2_ENGLISH'
 }
 
+VOICE_FINISH_ENGLISH = {
+    'text' : 'Thank you! I had a great time.',
+    'language' : 'en-GB',
+    'name' : 'en-GB-Wavenet-D',
+    'file_name' : 'VOICE_FINISH_ENGLISH'
+}
+
 AUDIO_ENGLISH = {
     'VOICE_PLAY_WITH_ME_ENGLISH': VOICE_PLAY_WITH_ME_ENGLISH,
     'VOICE_CHOOSE_DIFFICULTY_ENGLISH' : VOICE_CHOOSE_DIFFICULTY_ENGLISH,

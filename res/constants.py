@@ -1,3 +1,5 @@
+from raya.enumerations import LEDS_EXECUTION_CONTROL
+
 # Filesystem paths
 AUDIO_PATH = f'dat:tts_audio'
 
@@ -9,3 +11,12 @@ REC_TIMES = {'VOICE_CARD_MISMATCH_1_ENGLISH.mp3': 2.316863775253296, 'VOICE_CARD
 FLEET_STOP_COMMAND = 'stop_app'
 
 APP_LOCAL_AUDIO_PATH = 'tts_audio'
+
+LEDS_GARY_SPEAKING = {
+    'group': 'head',
+    'color': 'blue',
+    'animation': 'MOTION_4',
+    'speed': 6,
+    'repetitions' : 2,
+    'execution_control': LEDS_EXECUTION_CONTROL.OVERRIDE,
+}
